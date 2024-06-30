@@ -1,0 +1,99 @@
+:root {
+  --main-purple-color: #5c48f1;
+  --elements-background-color: #eeecfd;
+  --element-border-color: #e0e0e1;
+}
+body {
+  margin: 100px 50px;
+}
+i {
+  color: var(--main-purple-color);
+  font-size: 50px;
+}
+.title {
+  background-color: #eeecfd;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--main-purple-color);
+  font-weight: bold;
+  font-size: 30px;
+}
+.boxs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+}
+.boxs .box {
+  position: relative;
+}
+.boxs .box input {
+  display: none;
+}
+.boxs .box label {
+  display: block;
+  text-align: center;
+  border: 3px solid var(--element-border-color);
+  padding: 20px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.boxs .box label p {
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+}
+.boxs .box label::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 8px;
+  left: 8px;
+  color: #fff;
+  border: 2px solid var(--element-border-color);
+  border-radius: 3px;
+}
+.boxs .box label::after {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top: 13px;
+  left: 12px;
+  color: #fff;
+  border-radius: 3px;
+}
+.boxs .box .checkbox:checked + label::after,
+.boxs .box label:hover::after {
+  width: 13px;
+  height: 12px;
+}
+.boxs .box label:hover::after {
+  background-color: #d7d1ff;
+}
+.boxs .box .checkbox:checked + label::after {
+  background-color: var(--main-purple-color);
+}
+.boxs .box .checkbox:checked + label {
+  border: 3px solid var(--main-purple-color);
+  background-color: var(--elements-background-color);
+}
+@media (max-width: 768px) {
+  body {
+    margin: 100px 25px;
+  }
+  .boxs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+  .boxs .box label p {
+    font-size: 18px;
+  }
+}
+@media (max-width: 400px) {
+  .boxs .box label:hover::after {
+    background-color: transparent;
+  }
+}
